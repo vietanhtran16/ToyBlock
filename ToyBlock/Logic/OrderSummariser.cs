@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace ToyBlock
@@ -6,7 +7,12 @@ namespace ToyBlock
     {
         public Dictionary<ShapeEnum, int> CountShapes(Order order)
         {
-            throw new System.NotImplementedException();
+            var summary = new Dictionary<ShapeEnum, int>();
+            foreach (ShapeEnum shape in Enum.GetValues(typeof(ShapeEnum)))
+            {
+                summary.Add(shape, order.GetBlocks().FindAll(block => block.GetShape() == shape).Count);
+            }
+            return summary;
         }
     }
 }

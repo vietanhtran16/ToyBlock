@@ -4,13 +4,13 @@ namespace ToyBlock
 {
     public class Order
     {
-        private IEnumerable<Block> Blocks;
-        public Order(IEnumerable<Block> blocks)
+        private List<Block> Blocks;
+        public Order(List<Block> blocks)
         {
             this.Blocks = blocks;
         }
 
-        public IEnumerable<Block> GetBlocks()
+        public List<Block> GetBlocks()
         {
             return this.Blocks;
         }
