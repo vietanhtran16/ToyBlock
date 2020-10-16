@@ -14,5 +14,18 @@ namespace ToyBlock
             }
             return summary;
         }
+
+        public Dictionary<Tuple<ShapeEnum, ColorEnum>, int> GroupShapeByColor(Order order)
+        {
+            var summary = new Dictionary<Tuple<ShapeEnum, ColorEnum>, int>();
+            foreach (ShapeEnum shape in Enum.GetValues(typeof(ShapeEnum)))
+            {
+                foreach (ColorEnum color in Enum.GetValues(typeof(ColorEnum)))
+                {
+                    summary.Add(new Tuple<ShapeEnum, ColorEnum>(shape, color), order.GetBlocks().FindAll(block => block.GetShape() == shape && block.GetColor() == color).Count);
+                }
+            }
+            return summary;
+        }
     }
 }
